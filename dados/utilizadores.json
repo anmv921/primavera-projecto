@@ -1,0 +1,31 @@
+{
+    "utilizadores" : [
+        {
+            "id" : "1",
+            "email" : "travis@taxi.driver",
+            "senha" : "1234",
+            "nome" : "Travis Bickle",
+            "morada" : "Hopper Avenue",
+            "cp" : "1234-123",
+            "pais" : "America"
+        },
+        {
+            "id" : "2",
+            "email" : "george@costanza.pt",
+            "senha" : "4321",
+            "nome" : "George Costanza",
+            "morada" : "New York",
+            "cp" : "4321-123",
+            "pais" : "America"
+        },
+        {
+            "id" : "3",
+            "email" : "paul.atreides@arrakis",
+            "senha" : "1234",
+            "nome" : "Paul Atreides",
+            "morada" : "Arrakis",
+            "cp" : "1111-111",
+            "pais" : "Arrakis"
+        }
+    ] 
+}

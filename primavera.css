@@ -1,0 +1,185 @@
+
+@import url(
+    'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+/**********
+ * HEADER *
+ **********/
+
+header {
+    background-color:  #f5f5f5;
+    height: 80px;
+}
+
+#logo-e-icones {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: baseline; */
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+
+    flex-shrink: 2;
+
+}
+
+#logo-e-icones > div > ul {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0px;
+    /* margin-top: 20px; */
+    margin-top: 0px;
+}
+
+#logo-e-icones > div > ul > li {
+    list-style-type: none;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+#logo-e-icones > a {
+    margin-left: 20px;
+}
+
+.in-campo-pesquisa-class {
+    border-width: 1px;
+    border-color: #aaa;
+}
+
+
+#in-campo-pesquisa-hidden {
+    width: 0px;
+    height: 30px;
+    border: 0px;
+    padding: 0px;
+    transition: all 0.5s;
+    
+}
+
+#in-campo-pesquisa {
+    width: 300px;
+    height: 30px;
+    transition: all 0.5s;
+}
+
+/********
+ * MENU *
+ ********/
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+}
+
+.menu > li {
+    list-style-type: none;
+    flex-shrink: 2;
+}
+
+
+/**********
+ * BANNER *
+ **********/
+
+h1, h2, h3, h4 {
+    color: white;
+}
+
+.banner {
+    /* margin-top: 20px; */
+    background-image: url("imagens/fundoBanner.jpg");
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    position: relative;
+}
+
+#img-computador {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+}
+
+/********
+ * MAIN *
+ ********/
+
+h5 {
+    font-size: 250%;
+    color: #3C368C;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*********
+ * MODAL *
+ *********/
+
+ .tela {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.65);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.telaConteudo {
+    background-color: white;
+    width: 300px;
+    padding: 30px;
+    position: relative; 
+}
+
+.btnFechaTela {
+    position: absolute;
+    top: -14px;
+    right: -14px; 
+    background-color: white;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+    border: 2px solid #666;
+    border-radius: 50%;
+    box-shadow: 3px 3px 5px #000;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btnFechaTela:hover {
+    background-color: #666;
+    color: white;
+}
+
+.btnFechaTela:active {
+    box-shadow: none;
+    top: -11px;
+    right: -17px;
+}
+
+.hidden {
+    display: none;
+}
