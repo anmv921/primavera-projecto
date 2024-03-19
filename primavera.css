@@ -6,7 +6,14 @@ body {
     font-family: "Roboto", sans-serif;
     max-width: 1400px;
     margin: auto;
+
+    
 }
+
+.disable-scroll {
+    height: 100%;
+    overflow-y: hidden;
+ }
 
 
 /**********
@@ -103,19 +110,23 @@ h1, h2, h3, h4 {
 }
 
 .banner {
-    /* margin-top: 20px; */
     background-image: url("imagens/fundoBanner.jpg");
     height: 500px;
+
     display: flex;
     flex-direction: column;
     align-items: left;
+
     position: relative;
 }
 
 #img-computador {
+
     position: absolute;
     right: 40px;
     bottom: 40px;
+    
+    float: left;
 }
 
 /********
@@ -147,7 +158,6 @@ h5 {
 
 .telaConteudo {
     background-color: white;
-    width: 300px;
     padding: 30px;
     position: relative; 
 }
@@ -182,4 +192,21 @@ h5 {
 
 .hidden {
     display: none;
+}
+
+
+
+#btnModalValidar {
+    background-color: #0d6efd;
+    float: right;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+
+.telaConteudo > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: auto;
 }

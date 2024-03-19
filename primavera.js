@@ -25,15 +25,21 @@ function abrirLogin() {
     .addEventListener("click", (event) => {
         document.querySelector(".tela")
         .classList.remove("hidden");
+
+
+        document.body.classList.add("disable-scroll");
+
+        document.getElementById("in-modal-email").focus();
     });
 }
 
 function fecharLogin() {
     document.querySelector(".btnFechaTela")
     .addEventListener("click", (e) => {
-
         document.querySelector(".tela")
         .classList.add("hidden");
+
+        document.body.classList.remove("disable-scroll");
     });
 }
 

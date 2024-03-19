@@ -115,23 +115,25 @@
         <!-- BANNER -->
         <!-- ****** -->
         <section class="banner">
-            <h1 >
-                TECNOLOGIA PARA VENCER
-            </h1>
-            <h2>
-                Conheça os casos de sucesso PRIMAVERA
-            </h2>
-            <h3>
-                Na linha da frente na digitalização de empresas
-            </h3>
-            <h4>
-                https://pt.primaverabss.com/pt/pagina/tecnologia-para-vencer/
-            </h4>
+                <h1 >
+                    TECNOLOGIA PARA VENCER
+                </h1>
+                <h2>
+                    Conheça os casos de sucesso PRIMAVERA
+                </h2>
+                <h3>
+                    Na linha da frente na digitalização de empresas
+                </h3>
+                <h4>
+                    https://pt.primaverabss.com/pt/pagina/tecnologia-para-vencer/
+                </h4>
+
         </section>
 
         <img src="imagens/computador.png" 
         title="Banner" 
         id="img-computador" >
+
         <!-- ******* -->
         <!-- /BANNER -->
         <!-- ******* -->
@@ -397,10 +399,50 @@
     <!-- MODAL -->
     <!-- ***** -->
     <section class="tela hidden">
+
+
+
         <section class="telaConteudo">
-            <p>
-                Conteúdo da modal
-            </p>
+
+            <h6>
+                Controlo de acessos
+            </h6>
+            <section >
+
+                <form id="formControloAcessos">
+
+                    <p>
+                        <label for="in-modal-email">
+                            E-Mail:
+                        </label>
+        
+                        <input type="text"
+                        id="in-modal-email"
+                        name="in-modal-email" 
+                        type="text"
+                        pattern="^\S+@\S+\.\S+$"
+                        required >
+                    </p>
+                    <p>
+                        <label for="in-modal-senha">
+                            Senha:
+                        </label>
+                        <input
+                        id="in-modal-senha"
+                        name="in-modal-senha" 
+                        type="password" >
+                    </p>
+                    <p>
+                        <button id="btnModalValidar">
+                            Validar
+                        </button>
+                    </p>
+
+
+                </form>
+            </section>
+
+            
             <span class="btnFechaTela" >
                 X
             </span>
