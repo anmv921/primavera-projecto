@@ -6,8 +6,6 @@ body {
     font-family: "Roboto", sans-serif;
     max-width: 1400px;
     margin: auto;
-
-    
 }
 
 .disable-scroll {
@@ -15,50 +13,39 @@ body {
     overflow-y: hidden;
  }
 
-
 /**********
  * HEADER *
  **********/
-
-header {
+header #div-header {
     background-color:  #f5f5f5;
     height: 80px;
+    display: block;
+}
+
+#logotipo img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 #logo-e-icones {
     display: flex;
     justify-content: space-between;
-    /* align-items: baseline; */
-
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-
     flex-shrink: 2;
-
 }
 
 #logo-e-icones > div > ul {
     display: flex;
     align-items: baseline;
-    margin-bottom: 0px;
-    /* margin-top: 20px; */
-    margin-top: 0px;
+    margin-right: 20px;
 }
 
 #logo-e-icones > div > ul > li {
     list-style-type: none;
     cursor: pointer;
+
     margin-left: 20px;
     margin-right: 0;
-}
-
-#logo-e-icones > a {
-    margin-left: 20px;
 }
 
 .in-campo-pesquisa-class {
@@ -66,14 +53,12 @@ header {
     border-color: #aaa;
 }
 
-
 #in-campo-pesquisa-hidden {
     width: 0px;
     height: 30px;
     border: 0px;
     padding: 0px;
     transition: all 0.5s;
-    
 }
 
 #in-campo-pesquisa {
@@ -82,67 +67,188 @@ header {
     transition: all 0.5s;
 }
 
+#li-hamburguer {
+    display: none;
+}
+
 /********
  * MENU *
  ********/
-
 .menu {
+
     display: flex;
+
     justify-content: space-around;
-    padding-left: 0px;
+
+    text-align: center;
+
+    align-items: center;
+
+    background-color:  #f5f5f5;
+    text-transform: uppercase;
     margin-top: 0px;
-    margin-bottom: 0px;
     padding-bottom: 20px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    flex-direction: row;
+
+    margin-bottom: 0px;
 }
 
 .menu > li {
     list-style-type: none;
-    flex-shrink: 2;
 }
+
+.menu > li > a {
+    color: #a4a3a3;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.menu > li > a:hover {
+    color:  #0075be;
+}
+
 
 
 /**********
  * BANNER *
  **********/
 
-h1, h2, h3, h4 {
+
+
+ .banner > h1 {
+    margin-top: 0px;
+    font-size: 48px;
     color: white;
+
+    margin-left: 20px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+.banner > h2 {
+    font-size: 30px;
+    color: #ccc;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.banner > h3 {
+    font-size: 20px;
+    color: white;
+    font-style: italic;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .banner {
+    position: relative;
     background-image: url("imagens/fundoBanner.jpg");
     height: 500px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-
-    position: relative;
 }
 
 #img-computador {
-
     position: absolute;
     right: 40px;
-    bottom: 40px;
-    
-    float: left;
+    bottom: -40px;
+}
+
+#saiba-mais {
+    margin-left: 20px;
+    background-color: #f16248;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#saiba-mais:hover {
+    background-color: #c8c8c8;
+}
+
+#saiba-mais > a {
+    text-decoration: none;
+    color: #f5f5f5;
+    font-weight: bold;
+}
+
+#saiba-mais > a:hover {
+    cursor: pointer;
+    color: #252525;
 }
 
 /********
  * MAIN *
  ********/
 
-h5 {
+h4 {
     font-size: 250%;
     color: #3C368C;
     font-weight: bold;
     text-align: center;
 }
 
+/**********
+ * MISSÃO *
+ **********/
+
+ #img-missao {
+    float: left;
+    margin: 20px;
+ }
+
+ .missao > div {
+    display: flex;
+    flex-direction: column;
+ }
+
+ .missao h2 {
+    color: #252525;
+    font-weight: bold;
+ }
+
+ .missao p {
+    color: #7d7d7d;
+    line-height: 1.4;
+ }
+
+ #brochura-institucional > a {
+    color: #0075be;
+    text-decoration: none;
+    font-size: 120%;
+ }
+
+ #brochura-institucional > a:hover {
+    text-decoration: underline;
+ }
+
+hr {
+    
+    color: #7d7d7d;
+
+    height: 2px;
+ }
+
+
+
 /*********
  * MODAL *
  *********/
+
+h6 {
+    font-size: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
  .tela {
     position: fixed;
@@ -194,8 +300,6 @@ h5 {
     display: none;
 }
 
-
-
 #btnModalValidar {
     background-color: #0d6efd;
     float: right;
@@ -204,9 +308,111 @@ h5 {
     border-radius: 3px;
 }
 
+#btnModalValidar:hover {
+    cursor: pointer;
+}
+
 .telaConteudo > section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin: auto;
 }
+
+#avisos {
+    font-size: 75%;
+}
+
+/*********************
+ * RESPONSIVE DESIGN *
+ *********************/
+
+ @media only screen and (max-width: 800px) {
+    .menu {
+        flex-direction: column;
+        display: none;
+    }
+    
+    #li-hamburguer {
+        display: flex;
+    }
+
+    .banner {
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .banner > h1 {
+        font-size: 40px;
+        margin: auto;
+        padding: auto;
+    }
+
+    .banner > h2 {
+        margin: auto;
+        padding: auto;
+        font-size: 24px;
+    }
+
+    .banner > h3 {
+        margin: auto;
+        padding: auto;
+    }
+
+    .banner > button {
+        margin-bottom: auto;
+    }
+
+    #img-missao {
+        float: none;
+        width: 500px;
+        margin: auto;
+    }
+
+    .missao {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .missao h2, p {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    /**********
+    * EQUIPA *
+    **********/
+
+    .equipa {
+        background-color: #f16248;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .equipa > ul > li  {
+        list-style-type: none;
+    }
+
+
+}
+
+@media only screen and (max-width: 1100px) {
+    #img-computador {
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 801px) {
+    .menu {
+        display: flex;
+        flex-direction: row;
+    }
+}
+

@@ -7,7 +7,8 @@
             "nome" : "Travis Bickle",
             "morada" : "Hopper Avenue",
             "cp" : "1234-123",
-            "pais" : "America"
+            "pais" : "America",
+	    "contaActiva" : "true"
         },
         {
             "id" : "2",
@@ -16,7 +17,8 @@
             "nome" : "George Costanza",
             "morada" : "New York",
             "cp" : "4321-123",
-            "pais" : "America"
+            "pais" : "America",
+	    "contaActiva" : "false"
         },
         {
             "id" : "3",
@@ -25,7 +27,8 @@
             "nome" : "Paul Atreides",
             "morada" : "Arrakis",
             "cp" : "1111-111",
-            "pais" : "Arrakis"
+            "pais" : "Arrakis",
+	    "contaActiva" : "true"
         }
     ] 
 }

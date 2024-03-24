@@ -1,6 +1,8 @@
 "use strict";
 
-function toggleSearch() {
+let urlServer = "http://localhost:3000/utilizadores";
+
+function waitToggleSearch() {
 
     document.getElementById("icone-pesquisa")
     .addEventListener("click", (event) => {
@@ -20,9 +22,13 @@ function toggleSearch() {
     });
 }
 
-function abrirLogin() {
+function waitAbrirLogin() {
     document.getElementById("li-login")
     .addEventListener("click", (event) => {
+
+        document.getElementById("avisos")
+        .innerHTML = "";
+
         document.querySelector(".tela")
         .classList.remove("hidden");
 
@@ -33,17 +39,265 @@ function abrirLogin() {
     });
 }
 
-function fecharLogin() {
+function waitFecharModal() {
     document.querySelector(".btnFechaTela")
     .addEventListener("click", (e) => {
+        fecharLogin();
+    });
+}
+
+function fecharLogin() {
+    
         document.querySelector(".tela")
         .classList.add("hidden");
 
         document.body.classList.remove("disable-scroll");
-    });
+}
+
+function toggleIconesLoginAtivo() {
+    document.querySelector("#li-perfil")
+    .classList.remove("hidden");
+
+    document.querySelector("#li-logout")
+    .classList.remove("hidden");
+
+    document.getElementById("li-registo")
+    .classList.add("hidden");
+
+    document.getElementById("li-login")
+    .classList.add("hidden");
+}
+
+function toggleIconesLogOut() {
+    document.querySelector("#li-perfil")
+    .classList.add("hidden");
+
+    document.querySelector("#li-logout")
+    .classList.add("hidden");
+
+    document.getElementById("li-registo")
+    .classList.remove("hidden");
+
+    document.getElementById("li-login")
+    .classList.remove("hidden");
 }
 
 
-toggleSearch();
-abrirLogin();
-fecharLogin();
+
+function toggleWelcomeMessage(in_username) {
+    if (in_username) {
+        document.getElementById("p-msg-bem-vindo")
+        .innerHTML = `Bem-vindo(a), ${in_username}`;
+    }
+    else {
+        document.getElementById("p-msg-bem-vindo")
+        .innerHTML = "";
+    }
+}
+
+function waitForSubmit() {
+    // Submit é no form, não no botão que tem o evento submit!
+    document.getElementById("formControloAcessos")
+    .addEventListener( "submit", async event => {
+        event.preventDefault();
+        document.getElementById("avisos")
+            .innerHTML = "";
+        let valEmail = document
+        .getElementById("in-modal-email").value.trim();
+        let valSenha = document
+        .getElementById("in-modal-senha").value.trim();
+        /*****************
+        * VALIDAR DADOS *
+        *****************/
+        fetch(urlServer)
+        .then(response => {
+            if (response.ok ) {
+                return response.json();
+            }
+            else {
+                let erro = "";
+                switch (response.status) {
+                    case 404:
+                        erro = 
+                        "Ocorreu um erro no acesso ao servidor"+
+                        " - página não encontrada!";
+                        break;
+                    case 500:
+                        erro = "Ocorreu um erro no acesso ao servidor!"
+    
+                    default:
+                        erro = "Ocorreu um erro no request";
+                }
+                return Promise.reject(erro);
+            }
+        })
+        .then( users => {
+
+            // Tem que ser tudo feito dentro do request
+            // porque as funções são assíncronas
+            // e não esperam por fim de execução umas das outras...
+
+            let boolDadosOK = true;
+            const reEmail = new RegExp("^\\S+@\\S+\\.\\S+$");
+            
+            if (valEmail === "" || valSenha === "" ) {
+                    document.getElementById("avisos")
+                    .innerHTML += 
+                    "<p>Os dois campos são de preenchimento obrigatório!</p>";
+                    boolDadosOK = false;
+            }
+            else if ( !reEmail.test( valEmail ) ) {
+                    document.getElementById("avisos")
+                    .innerHTML += 
+                    "<p>O e-mail tem um formato incorreto!</p>";
+                    boolDadosOK = false;
+            }
+            
+            let boolUserEncontrado = false;
+            for ( let user of users ) {
+                if ( 
+                    user.email.trim() === valEmail.trim() &&
+                    user.senha.trim() === valSenha.trim()
+                ) {
+                    boolUserEncontrado = true;
+                    // User encontrado
+
+                    
+                    // Conta inativa
+                    if( !JSON.parse(user.contaActiva) ) {
+                        document.getElementById("avisos")
+                        .innerHTML += 
+                        "<p>Conta não activa!</p>";
+                        boolDadosOK = false;
+                    } // End if conta inativa
+                    else { 
+                        // User ok
+                        sessionStorage.setItem( "userId", user.id );
+                    }
+                    break; // Sair do loop
+                } // End if - user encontrado
+            } // End for
+
+            if ( !boolUserEncontrado ) {
+                document.getElementById("avisos")
+                .innerHTML += 
+                "<p>Utilizador inexistente!</p>";
+                boolDadosOK = false;
+            }
+
+            if (boolDadosOK) {
+                document.getElementById("avisos")
+                .innerHTML = "";
+
+                fecharLogin();
+                toggleIconesLoginAtivo();
+
+                let loggedInUserId = sessionStorage.getItem("userId");
+
+                /******************
+                 * GET USER BY ID *
+                 ******************/
+                fetch(
+                    `${urlServer}/${loggedInUserId}`
+                )
+                .then(response => {
+                    if (response.ok ) {
+                        return response.json();
+                    }
+                    else {
+                        let erro = "";
+                        switch (response.status) {
+                            case 404:
+                                erro = 
+                                "Ocorreu um erro no acesso ao servidor"+
+                                " - página não encontrada!";
+                                break;
+                            case 500:
+                                erro = "Ocorreu um erro no acesso ao servidor!"
+            
+                            default:
+                                erro = "Ocorreu um erro no request";
+                        }
+                        return Promise.reject(erro);
+                    }
+                })
+                .then( user => {
+                    toggleWelcomeMessage(user.nome);
+                })
+                .catch( erro => {
+                    alert(erro);
+                });
+                /*************************
+                 * END OF GET USER BY ID *
+                 ************************/
+                
+            } // End if dados OK
+        })
+        .catch( erro => {
+            alert(erro);
+        });
+    }); // End event listener
+} // End wait for submit
+
+function waitForLogout() {
+    document.getElementById("li-logout")
+    .addEventListener("click", (event) =>{
+        toggleWelcomeMessage("");
+        toggleIconesLogOut();
+        sessionStorage.removeItem( "userId" );
+    });
+}
+
+function redirect() {
+    // if(window.location.href != "primavera.html") {
+    //     window.location.href = "primavera.html";
+    // }
+    console.log(window.location.href);
+}
+
+function waitClickHamburger() {
+    document
+    .getElementById("li-hamburguer")
+    .addEventListener("click", (event) => {
+
+        if (
+            document.querySelector(".menu").style
+            .getPropertyValue("display") === "flex"
+        ) {
+            document.querySelector(".menu")
+            .style.setProperty("display", "none");
+        }
+        else {
+            document.querySelector(".menu")
+            .style.setProperty("display", "flex");
+        }
+    });
+}
+
+function waitForResize() {
+    addEventListener("resize", (event) => {
+        if(window.innerWidth > 800) {
+            document.querySelector(".menu")
+            .style.setProperty("display", "flex");
+
+            document.querySelector(".menu")
+            .style.setProperty("flex-direction", "row");
+        }
+        else {
+            document.querySelector(".menu")
+            .style.setProperty("display", "none");
+
+            document.querySelector(".menu")
+            .style.setProperty("flex-direction", "column");
+        }
+    });
+}
+
+waitToggleSearch();
+waitAbrirLogin();
+waitFecharModal();
+waitForSubmit();
+waitForLogout();
+redirect();
+waitClickHamburger();
+waitForResize();
