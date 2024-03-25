@@ -302,7 +302,32 @@ function sliderLoop() {
         "#153c85",
         "#ebc711",
         "#153c85",
-        "#ff701e"];
+        "#ff701e"
+    ];
+    let arr_titles = [
+        "PRIMAVERA Academy",
+        "Online Seminar",
+        "RE_Start",
+        "Marketing Digital",
+        "Programa SCORE"
+    ];
+    let arr_subtitles = [
+        "Juntos seremos mais fortes!",
+        "Legislação Laboral de A a Z",
+        "CODE Learning Academy",
+        "Aproveite Desconto 20%",
+        "Online | Virtual Classroom"
+    ];
+
+    let arr_sliderTextos = [
+        "Aposte em novas competências",
+        "Atualize os seus conhecimentos",
+        "Juntos desenvolvemos o teu percurso de sucesso como Developer",
+        "Virtual Classroom (Online)",
+        "Certifique-se como Profissional PRIMAVERA"
+    ];
+
+
 
     setInterval(
         () => {
@@ -314,6 +339,15 @@ function sliderLoop() {
 
             document.getElementById("slider-title")
             .style.color = arr_titleColors[contador - 1];
+
+            document.getElementById("slider-title")
+            .innerHTML = arr_titles[contador - 1];
+
+            document.getElementById("slider-sub-titulo")
+            .innerHTML = arr_subtitles[contador - 1];
+
+            document.getElementById("slider-texto")
+            .innerHTML = arr_sliderTextos[contador - 1];
 
             if ( contador === 1 ) {
                 document.getElementById("slider-sub-titulo")

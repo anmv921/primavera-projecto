@@ -286,6 +286,9 @@ hr {
 
 #slider {
     
+    background-image: url("imagens/slider.jpg");
+
+
     height: 500px;
 
     display: flex;
@@ -311,6 +314,66 @@ hr {
     font-size: 26px;
     color:  #153c85;
 }
+
+/************
+ * TELEFONE *
+ ************/
+
+ #p-telefone {
+    float: right;
+    background-color:  #252525;
+    color: #0acb84;
+    /* width: 20px;
+    height: 20px; */
+    position: fixed;
+    top: 50%;
+    /* right: 0; */
+    /* padding: 20px; */
+    
+ }
+
+ #p-numero-telefone {
+    /* display: none; */
+ }
+
+ #p-telefone:hover #p-numero-telefone  {
+    display: contents;
+    width: auto;
+ }
+
+
+/*********
+ * /MAIN *
+ *********/
+
+/**********
+ * FOOTER *
+ **********/
+
+footer > section {
+    display: flex;
+    background-color: #ebebeb;
+    justify-content: space-around;
+}
+
+footer > section > ul > li {
+    list-style-type: none;
+}
+
+footer > section > ul > li > h2 {
+    color: #252525;
+}
+
+footer > section > ul > li > a {
+    text-decoration: none;
+    color: #7d7d7d;
+}
+
+footer > section > ul > li > a:hover {
+    text-decoration: underline;
+}
+
+
 
 /*********
  * MODAL *
@@ -473,6 +536,17 @@ h6 {
         align-items: center;
         padding-left: 0px;
     }
+
+
+
+
+/*********************
+ * FOOTER RESPONSIVE *
+ *********************/
+
+ footer > section {
+    flex-wrap: wrap;
+ }
 
 }
 
