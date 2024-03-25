@@ -182,6 +182,7 @@ h4 {
 /**********
  * MISSÃO *
  **********/
+
  #img-missao {
     float: left;
     margin: 20px;
@@ -279,6 +280,38 @@ hr {
     font-weight: bold;
 }
 
+/**********
+ * SLIDER *
+ **********/
+
+#slider {
+    
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 50px;
+}
+
+#slider > h1 {
+    font-size: 42px;
+    color: #f27d29;
+}
+
+
+#slider > h2 {
+    font-size: 32px;
+    color:  #153c85;
+}
+
+#slider > p {
+    font-size: 26px;
+    color:  #153c85;
+}
+
 /*********
  * MODAL *
  *********/
@@ -374,6 +407,10 @@ h6 {
         display: flex;
     }
 
+/*********************
+ * BANNER RESPONSIVE *
+ *********************/
+
     .banner {
         height: 320px;
         display: flex;
@@ -404,6 +441,10 @@ h6 {
         margin-bottom: auto;
     }
 
+/***********************
+ * MISSAO - RESPONSIVE *
+ ***********************/
+
     #img-missao {
         float: none;
         width: 500px;
@@ -420,6 +461,7 @@ h6 {
     .missao h2, p {
         margin-left: 20px;
         margin-right: 20px;
+
     }
 
     /*********************
@@ -438,6 +480,8 @@ h6 {
     #img-computador {
         display: none;
     }
+
+    
 }
 
 @media only screen and (min-width: 801px) {

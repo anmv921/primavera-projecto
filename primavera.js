@@ -293,6 +293,52 @@ function waitForResize() {
     });
 }
 
+
+
+function sliderLoop() {
+    let contador = 1;
+    let arr_titleColors = [ 
+        "#f27d29",
+        "#153c85",
+        "#ebc711",
+        "#153c85",
+        "#ff701e"];
+
+    setInterval(
+        () => {
+            let background = 
+            `url("imagens/slider${contador}.jpg")`;
+
+            document.getElementById("slider")
+            .style.backgroundImage = background;
+
+            document.getElementById("slider-title")
+            .style.color = arr_titleColors[contador - 1];
+
+            if ( contador === 1 ) {
+                document.getElementById("slider-sub-titulo")
+                .style.color = "#153c85";
+
+                document.getElementById("slider-texto")
+                .style.color = "#153c85";
+
+            }
+            else {
+                document.getElementById("slider-sub-titulo")
+                .style.color = "white";
+
+                document.getElementById("slider-texto")
+                .style.color = "white";
+            }
+
+            contador ++;
+            if (contador > 5) {
+                contador = 1;
+            }
+        }, 
+    5000);
+}
+
 waitToggleSearch();
 waitAbrirLogin();
 waitFecharModal();
@@ -301,3 +347,4 @@ waitForLogout();
 redirect();
 waitClickHamburger();
 waitForResize();
+sliderLoop();
