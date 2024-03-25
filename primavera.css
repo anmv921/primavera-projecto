@@ -1,4 +1,3 @@
-
 @import url(
     'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
@@ -43,7 +42,6 @@ header #div-header {
 #logo-e-icones > div > ul > li {
     list-style-type: none;
     cursor: pointer;
-
     margin-left: 20px;
     margin-right: 0;
 }
@@ -75,25 +73,17 @@ header #div-header {
  * MENU *
  ********/
 .menu {
-
     display: flex;
-
     justify-content: space-around;
-
     text-align: center;
-
     align-items: center;
-
     background-color:  #f5f5f5;
     text-transform: uppercase;
     margin-top: 0px;
     padding-bottom: 20px;
-
     padding-left: 20px;
     padding-right: 20px;
-
     flex-direction: row;
-
     margin-bottom: 0px;
 }
 
@@ -112,23 +102,16 @@ header #div-header {
     color:  #0075be;
 }
 
-
-
 /**********
  * BANNER *
  **********/
-
-
-
- .banner > h1 {
+.banner > h1 {
     margin-top: 0px;
     font-size: 48px;
     color: white;
-
     margin-left: 20px;
     padding-top: 20px;
     margin-bottom: 10px;
-
 }
 
 .banner > h2 {
@@ -189,7 +172,6 @@ header #div-header {
 /********
  * MAIN *
  ********/
-
 h4 {
     font-size: 250%;
     color: #3C368C;
@@ -200,7 +182,6 @@ h4 {
 /**********
  * MISSÃO *
  **********/
-
  #img-missao {
     float: left;
     margin: 20px;
@@ -232,25 +213,82 @@ h4 {
  }
 
 hr {
-    
     color: #7d7d7d;
-
     height: 2px;
  }
 
+/**********
+* EQUIPA *
+**********/
+.equipa > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
 
+.equipa > ul > li  {
+    list-style-type: none;
+}
+
+.equipa img {
+    border-radius: 50%;
+    width: 200px;
+    position: relative;
+}
+
+.equipa img:hover {
+    border-radius: 0;
+
+    transition: all 0.5s;
+}
+
+.equipa img:hover ~ ul {
+    background-color: rgba(128, 128, 128, 0.5);
+
+    visibility: visible;
+
+    transition: all 1s;
+
+} 
+
+.equipa > ul > li > ul {
+    visibility: hidden;
+
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    align-items: center;
+    flex-wrap: nowrap;
+    bottom: 63px;
+    color: white;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.equipa > ul > li > ul > li {
+    list-style-type: none;
+}
+
+.equipa > ul > li > ul > li:first-child {
+    font-weight: bold;
+}
 
 /*********
  * MODAL *
  *********/
-
 h6 {
     font-size: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
- .tela {
+.tela {
     position: fixed;
     top: 0;
     left: 0;
@@ -326,7 +364,6 @@ h6 {
 /*********************
  * RESPONSIVE DESIGN *
  *********************/
-
  @media only screen and (max-width: 800px) {
     .menu {
         flex-direction: column;
@@ -385,20 +422,15 @@ h6 {
         margin-right: 20px;
     }
 
-    /**********
-    * EQUIPA *
-    **********/
+    /*********************
+    * EQUIPA RESPONSIVE *
+    *********************/
 
-    .equipa {
-        background-color: #f16248;
-        display: flex;
-        flex-direction: row;
+    .equipa > ul {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0px;
     }
-
-    .equipa > ul > li  {
-        list-style-type: none;
-    }
-
 
 }
 
@@ -407,7 +439,6 @@ h6 {
         display: none;
     }
 }
-
 
 @media only screen and (min-width: 801px) {
     .menu {
