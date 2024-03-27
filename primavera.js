@@ -373,6 +373,14 @@ function sliderLoop() {
     5000);
 }
 
+function waitForAcceptCookies() {
+    document.querySelector("#btn-aceitar-cookies")
+    .addEventListener("click", (event) =>{
+        document.querySelector(".tela-cookies")
+        .style.setProperty("display", "none");
+    });
+}
+
 waitToggleSearch();
 waitAbrirLogin();
 waitFecharModal();
@@ -382,3 +390,4 @@ redirect();
 waitClickHamburger();
 waitForResize();
 sliderLoop();
+waitForAcceptCookies();
