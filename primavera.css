@@ -553,12 +553,11 @@ h6 {
     
     #li-hamburguer {
         display: flex;
-        
     }
 
-/*********************
- * BANNER RESPONSIVE *
- *********************/
+    /*********************
+    * BANNER RESPONSIVE *
+    *********************/
 
     .banner {
         height: 320px;
@@ -590,9 +589,9 @@ h6 {
         margin-bottom: auto;
     }
 
-/***********************
- * MISSAO - RESPONSIVE *
- ***********************/
+    /***********************
+    * MISSAO - RESPONSIVE *
+    ***********************/
 
     #img-missao {
         float: none;
@@ -610,26 +609,23 @@ h6 {
     .missao h2, p {
         margin-left: 20px;
         margin-right: 20px;
-
     }
 
     /*********************
     * EQUIPA RESPONSIVE *
     *********************/
-
     .equipa > ul {
         flex-direction: column;
         align-items: center;
         padding-left: 0px;
     }
 
-/*********************
- * FOOTER RESPONSIVE *
- *********************/
-
- footer > section {
-    flex-wrap: wrap;
- }
+    /*********************
+    * FOOTER RESPONSIVE *
+    *********************/
+    footer > section {
+        flex-wrap: wrap;
+    }
 
 } /* End max-width 800px */
 
@@ -645,11 +641,8 @@ h6 {
         justify-content: center;
     }
 
-
     .tela-cookies > section {
         height: 150px;
-
-        
     }
 
     .tela-cookies > section > ul {
