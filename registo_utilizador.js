@@ -176,8 +176,58 @@ function waitForSubmit() {
          * DADOS OK *
          ************/
         if (boolDadosOK) {
-            
-        }
+
+            let novoUser = {
+                email: valorEmail,
+                senha: valorSenha,
+                nome: valorNome,
+                morada: valorMorada,
+                cp: valorCodigoPostal,
+                pais: valorPais,
+                contaActiva: "false"};
+
+            fetch(
+                urlServer,
+                {
+                    method: "POST",
+                    body: JSON.stringify(novoUser),
+                    headers: new Headers({
+                        'Content-type': 'application/json; charset=utf-8'
+                    })
+                })
+                .then( response => {
+                    if (response.ok) {
+                        console.log(response.status); // 201
+                        console.log(response.statusText); // Created
+                        return response.json();
+                    }
+                    else {
+                        return Promise.reject(
+                            'Ocorreu um erro no acesso ao servidor!');
+                    }
+                })
+                .then(
+                resposta => {
+                    
+                    document.getElementById("nome").value = "";
+                    document.getElementById("email").value = "";
+                    document.getElementById("senha").value = "";
+                    document.getElementById("confirmar-senha")
+                        .value = "";
+                    document.getElementById("morada").value = "";
+                    document.getElementById("codigo-postal")
+                        .value = "";
+                    document.getElementById("pais").value = "";
+
+
+                    alert("User criado com sucesso!");
+                })
+                .catch( erro => {
+                    alert(erro);
+                })
+
+
+        } // End if dados ok
         
     }); // End event listener
 }
