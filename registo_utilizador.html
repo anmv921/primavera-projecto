@@ -9,77 +9,112 @@
 </head>
 <body>
     
-    <form action="" id="form-registo">
+    <form id="form-registo">
 
-        <p>
-            <label for="nome">
-                Nome:
-            </label>
-            <input type="text"
-            id="nome"
-            name="nome" >
-        </p>
+        <h1>
+            Registo de Utilizador
+        </h1>
 
-        <p>
-            <label for="email" >
-                E-Mail:
-            </label>
-            <input type="text"
-            id="email"
-            name="email" >
-        </p>
+            
+            <p>
+                <label for="nome">
+                    Nome:
+                </label>
+                <input type="text"
+                id="nome"
+                name="nome" >
+            </p>
+            
+            <p>
+                <label for="email" >
+                    E-Mail:
+                </label>
+                <input type="text"
+                id="email"
+                name="email" >
+            </p>
 
-        <p>
-            <label for="senha">
-                Senha:
-            </label>
-            <input type="text"
-            id="senha"
-            name="senha" >
-        </p>
+            <p class="p-aviso" 
+            id="p-av-email">
+            </p>
+            
+            <p>
+                <label for="senha">
+                    Senha:
+                </label>
+                <input type="text"
+                id="senha"
+                name="senha" >
+            </p>
 
-        <p>
-            <label for="confirmar-senha">
-                Confirme a senha:
-            </label>
-            <input type="text"
-            id="confirmar-senha"
-            name="confirmar-senha" >
-        </p>
+            <p class="p-aviso" id="p-av-formato-senha">
+                
+            </p>
 
-        <p class="p-aviso">
-            É obrigatório confirmar a senha atual ou alterada!
-        </p>
+            <p>
+                <label for="confirmar-senha">
+                    Confirme a senha:
+                </label>
+                <input type="text"
+                id="confirmar-senha"
+                name="confirmar-senha" >
+            </p>
+            
+            <p class="p-aviso" id="p-av-conf-senha">
+                É obrigatório confirmar a senha atual ou alterada!
+            </p>
+            
+            <p>
+                <label for="morada">
+                    Morada:
+                </label>
+                <input type="text"
+                id="morada"
+                name="morada" >
+            </p>
+            
+            <p>
+                <label for="codigo-postal">
+                    Código Postal:
+                </label>
+                <input type="text"
+                id="codigo-postal"
+                name="codigo-postal" >
+            </p>
 
-        <p>
-            <label for="morada">
-                Morada:
-            </label>
-            <input type="text"
-            id="morada"
-            name="morada" >
-        </p>
+            <p class="p-aviso" id="p-av-cp7">
+                Código postal com formato errado!
+            </p>
+            
+            <p>
+                <label for="pais">
+                    País
+                </label>
+                <input type="text"
+                id="pais"
+                name="pais" >
+            </p>
 
-        <p>
-            <label for="codigo-postal">
-                Código Postal:
-            </label>
-            <input type="text"
-            id="codigo-postal"
-            name="codigo-postal" >
-        </p>
+            <p class="p-aviso" id="p-av-todos">
+                Todos os campos são de preenchimento obrigatório!
+            </p>
+        
+            <p>
+                <button type="button"
+                id="btn-voltar">
+                    Voltar
+                </button>
 
-        <p>
-            <label for="pais">
-                País
-            </label>
-            <input type="text"
-            id="pais"
-            name="pais" >
-        </p>
-
+                <button type="submit" 
+                id="btn-submeter-registo">
+                    Submeter Registo
+                </button>
+            </p>
+        
     </form>
 
+
+    <script src="registo_utilizador.js"></script>
 
 </body>
 </html>

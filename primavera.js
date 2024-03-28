@@ -32,7 +32,6 @@ function waitAbrirLogin() {
         document.querySelector(".tela")
         .classList.remove("hidden");
 
-
         document.body.classList.add("disable-scroll");
 
         document.getElementById("in-modal-email").focus();
@@ -47,7 +46,6 @@ function waitFecharModal() {
 }
 
 function fecharLogin() {
-    
         document.querySelector(".tela")
         .classList.add("hidden");
 
@@ -81,8 +79,6 @@ function toggleIconesLogOut() {
     document.getElementById("li-login")
     .classList.remove("hidden");
 }
-
-
 
 function toggleWelcomeMessage(in_username) {
     if (in_username) {
@@ -124,7 +120,6 @@ function waitForSubmit() {
                         break;
                     case 500:
                         erro = "Ocorreu um erro no acesso ao servidor!"
-    
                     default:
                         erro = "Ocorreu um erro no request";
                 }
@@ -132,11 +127,9 @@ function waitForSubmit() {
             }
         })
         .then( users => {
-
             // Tem que ser tudo feito dentro do request
             // porque as funções são assíncronas
             // e não esperam por fim de execução umas das outras...
-
             let boolDadosOK = true;
             const reEmail = new RegExp("^\\S+@\\S+\\.\\S+$");
             
@@ -152,7 +145,6 @@ function waitForSubmit() {
                     "<p>O e-mail tem um formato incorreto!</p>";
                     boolDadosOK = false;
             }
-            
             let boolUserEncontrado = false;
             for ( let user of users ) {
                 if ( 
@@ -161,8 +153,6 @@ function waitForSubmit() {
                 ) {
                     boolUserEncontrado = true;
                     // User encontrado
-
-                    
                     // Conta inativa
                     if( !JSON.parse(user.contaActiva) ) {
                         document.getElementById("avisos")
@@ -252,7 +242,7 @@ function redirect() {
     // if(window.location.href != "primavera.html") {
     //     window.location.href = "primavera.html";
     // }
-    console.log(window.location.href);
+    // console.log(window.location.href);
 }
 
 function waitClickHamburger() {
@@ -293,8 +283,6 @@ function waitForResize() {
     });
 }
 
-
-
 function sliderLoop() {
     let contador = 1;
     let arr_titleColors = [ 
@@ -318,7 +306,6 @@ function sliderLoop() {
         "Aproveite Desconto 20%",
         "Online | Virtual Classroom"
     ];
-
     let arr_sliderTextos = [
         "Aposte em novas competências",
         "Atualize os seus conhecimentos",
@@ -326,8 +313,6 @@ function sliderLoop() {
         "Virtual Classroom (Online)",
         "Certifique-se como Profissional PRIMAVERA"
     ];
-
-
 
     setInterval(
         () => {
@@ -374,10 +359,25 @@ function sliderLoop() {
 }
 
 function waitForAcceptCookies() {
-    document.querySelector("#btn-aceitar-cookies")
-    .addEventListener("click", (event) =>{
+
+    if ( localStorage.getItem("CookiesAccepted")==="true")  {
         document.querySelector(".tela-cookies")
-        .style.setProperty("display", "none");
+            .style.setProperty("display", "none");
+    } else {
+        document.querySelector("#btn-aceitar-cookies")
+        .addEventListener("click", (event) =>{
+            document.querySelector(".tela-cookies")
+            .style.setProperty("display", "none");
+
+            localStorage.setItem("CookiesAccepted", "true")
+        });
+    }
+}
+
+function waitForAbrirRegisto() {
+    document.querySelector("#li-registo")
+    .addEventListener("click", (event)=> {
+        window.location.href="registo_utilizador.html";
     });
 }
 
@@ -391,3 +391,4 @@ waitClickHamburger();
 waitForResize();
 sliderLoop();
 waitForAcceptCookies();
+waitForAbrirRegisto();

@@ -348,7 +348,6 @@ hr {
  * /TELEFONE *
  ************/
 
-
 /*********
  * /MAIN *
  *********/
@@ -387,7 +386,6 @@ footer > section > ul > li > a:hover {
     margin-left: -22px;
 }
 
-
 /*********
  * MODAL *
  *********/
@@ -396,7 +394,6 @@ h6 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 .tela {
     position: fixed;
     top: 0;
@@ -540,7 +537,6 @@ h6 {
     margin-right: 50px;
 
 }
-
 
 /*********************
  * RESPONSIVE DESIGN *

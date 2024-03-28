@@ -1,3 +1,25 @@
+form > p {
+    display: flex;
+    justify-content: space-between;
+}
+
+form > p:last-child {
+    justify-content: flex-start;
+}
+
+form > p > input {
+    width: 70vw;
+}
+
 .p-aviso {
     color: red;
+    display: none;
+}
+
+#p-av-conf-senha {
+    
+} 
+
+#p-av-todos {
+
 }
