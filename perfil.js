@@ -183,6 +183,11 @@ function patchUser(in_novosDadosUser) {
         .then(
         resposta => {
             alert("Sucesso ao atualizar a passe!");
+
+            document.getElementById("form-alteracao-pass")
+            .style.display = "none";
+
+            sessionStorage.setItem("EdicaoPasse", "false");
         })
         .catch( erro => {
             alert(erro);
