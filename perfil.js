@@ -2,7 +2,7 @@
 let urlServer = "http://localhost:3000/utilizadores";
 
 function validarResposta(in_response) {
-    if (in_response.ok ) {
+    if ( in_response.ok ) {
         return in_response.json();
     }
     else {

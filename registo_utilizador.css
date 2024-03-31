@@ -11,6 +11,19 @@ form > p > input {
     width: 70vw;
 }
 
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 .p-aviso {
     color: red;
     display: none;
@@ -23,3 +36,4 @@ form > p > input {
 #p-av-todos {
 
 }
+

@@ -234,6 +234,70 @@ function waitForFecharModalSucesso() {
     });
 }
 
+function validarResposta(in_response) {
+    if ( in_response.ok ) {
+        return in_response.json();
+    }
+    else {
+        let erro = "";
+        switch (in_response.status) {
+            case 404:
+                erro = 
+                "Ocorreu um erro no acesso ao servidor"+
+                " - página não encontrada!";
+                break;
+            case 500:
+                erro = "Ocorreu um erro no acesso ao servidor!"
+
+            default:
+                erro = "Ocorreu um erro no request";
+        }
+        return Promise.reject(erro);
+    } // End else - erro
+}
+
+function preencherDados(in_user) {
+
+    document.getElementById("nome")
+    .value = `${in_user.nome}`;
+
+    document.getElementById("email")
+    .value = `${in_user.email}`;
+
+    document.getElementById("senha")
+    .value = `${in_user.senha}`;
+
+    document.getElementById("morada")
+    .value += `${in_user.morada}`;
+
+    document.getElementById("codigo-postal")
+    .value += `${in_user.cp}`;
+
+    document.getElementById("pais")
+    .value += `${in_user.pais}`;
+}
+
+function getCurrentUser() {
+    let currentlyLoggedInId = sessionStorage.getItem("userId");
+    // Se não existe user autenticado, redirecionar para a página principal
+    if ( !currentlyLoggedInId ) {
+        window.location.href="primavera.html";
+    }
+    // Obter os dados do cliente
+    fetch(
+        `${urlServer}/${currentlyLoggedInId}`
+    )
+    .then(response => {
+        return validarResposta(response);
+    })
+    .then( user => {
+        preencherDados(user);
+    })
+    .catch( erro => {
+        alert(erro);
+    });
+} // End getCurrentUser
+
 function initForm() {
     if ( sessionStorage.getItem("ConfirmarSubmit") !== "true" ) {
         document.getElementById("tela-sucesso")
@@ -247,6 +311,8 @@ function initForm() {
 
         document.querySelector("#btn-submeter-registo").innerHTML
         = "Guardar alterações";
+
+        getCurrentUser();
     }
     else {
         document.querySelector("#form-registo h1")
