@@ -1,5 +1,4 @@
 "use strict";
-
 let urlServer = "http://localhost:3000/utilizadores";
 
 function waitToggleSearch() {
@@ -29,7 +28,7 @@ function waitAbrirLogin() {
         document.getElementById("avisos")
         .innerHTML = "";
 
-        document.querySelector(".tela")
+        document.querySelector("#tela-controlo")
         .classList.remove("hidden");
 
         document.body.classList.add("disable-scroll");
@@ -46,7 +45,7 @@ function waitFecharModal() {
 }
 
 function fecharLogin() {
-        document.querySelector(".tela")
+        document.querySelector("#tela-controlo")
         .classList.add("hidden");
 
         document.body.classList.remove("disable-scroll");
@@ -89,6 +88,39 @@ function toggleWelcomeMessage(in_username) {
         document.getElementById("p-msg-bem-vindo")
         .innerHTML = "";
     }
+}
+
+function getUserById(in_loggedInUserId) {
+    fetch(
+        `${urlServer}/${in_loggedInUserId}`
+    )
+    .then(response => {
+        if (response.ok ) {
+            return response.json();
+        }
+        else {
+            let erro = "";
+            switch (response.status) {
+                case 404:
+                    erro = 
+                    "Ocorreu um erro no acesso ao servidor"+
+                    " - página não encontrada!";
+                    break;
+                case 500:
+                    erro = "Ocorreu um erro no acesso ao servidor!"
+
+                default:
+                    erro = "Ocorreu um erro no request";
+            }
+            return Promise.reject(erro);
+        }
+    })
+    .then( user => {
+        toggleWelcomeMessage(user.nome);
+    })
+    .catch( erro => {
+        alert(erro);
+    });
 }
 
 function waitForSubmit() {
@@ -238,13 +270,6 @@ function waitForLogout() {
     });
 }
 
-function redirect() {
-    // if(window.location.href != "primavera.html") {
-    //     window.location.href = "primavera.html";
-    // }
-    // console.log(window.location.href);
-}
-
 function waitClickHamburger() {
     document
     .getElementById("li-hamburguer")
@@ -366,10 +391,11 @@ function waitForAcceptCookies() {
     } else {
         document.querySelector("#btn-aceitar-cookies")
         .addEventListener("click", (event) =>{
+
+            localStorage.setItem("CookiesAccepted", "true");
+
             document.querySelector(".tela-cookies")
             .style.setProperty("display", "none");
-
-            localStorage.setItem("CookiesAccepted", "true")
         });
     }
 }
@@ -377,18 +403,47 @@ function waitForAcceptCookies() {
 function waitForAbrirRegisto() {
     document.querySelector("#li-registo")
     .addEventListener("click", (event)=> {
+        sessionStorage.setItem("EdicaoPerfil", "false");
         window.location.href="registo_utilizador.html";
     });
 }
 
+function waitForClickPerfil() {
+    document.getElementById("li-perfil")
+    .addEventListener( "click", (event) => {
+        window.location.href="perfil.html";
+    });
+}
+
+function initSite() {
+    if ( sessionStorage.getItem("userId") ) {
+        toggleIconesLoginAtivo();
+        getUserById( sessionStorage.getItem("userId") );
+    }
+    
+    else {
+        toggleIconesLogOut();
+    }
+
+    if ( localStorage.getItem("CookiesAccepted")==="true")  {
+        document.querySelector(".tela-cookies")
+            .style.setProperty("display", "none");
+    }
+    else {
+        document.querySelector(".tela-cookies")
+            .style.setProperty("display", "flex");
+    }
+}
+
+initSite();
 waitToggleSearch();
 waitAbrirLogin();
 waitFecharModal();
 waitForSubmit();
 waitForLogout();
-redirect();
 waitClickHamburger();
 waitForResize();
 sliderLoop();
 waitForAcceptCookies();
 waitForAbrirRegisto();
+waitForClickPerfil();

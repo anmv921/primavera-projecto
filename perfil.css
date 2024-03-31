@@ -1,0 +1,16 @@
+#dados-perfil > ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
