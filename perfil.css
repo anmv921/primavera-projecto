@@ -1,6 +1,5 @@
-#dados-perfil > ul {
-    list-style-type: none;
-    padding-left: 0px;
+h1 {
+    text-align: center;
 }
 
 button {
@@ -9,8 +8,44 @@ button {
     border: none;
     border-radius: 5px;
     padding: 5px;
+    
 }
 
 button:hover {
+    cursor: pointer;
+}
+
+form {
+    width: 400px;
+    display: none;
+}
+
+form > p {
+    display: flex;
+    justify-content: space-between;
+}
+
+form > p:last-child {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#dados-perfil > ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+#s-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.p-aviso {
+    color: red;
+    display: none;
+}
+
+#s-editar-pass:hover {
     cursor: pointer;
 }

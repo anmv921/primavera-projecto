@@ -6,6 +6,13 @@
     content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
 
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="perfil.css">
 </head>
 <body>
@@ -22,7 +29,12 @@
                 E-mail:
             </li>
             <li id="li-senha">
-                Senha:
+                Senha:<span></span> 
+                <span id="s-editar-pass">
+                    <i 
+                class="fa-solid fa-pen-to-square"></i>
+                </span>
+                
             </li>
             <li id="li-morada">
                 Morada:
@@ -36,14 +48,49 @@
         </ul>
     </section>
 
-    <button type="button"
-            id="btn-voltar">
-            Voltar para a página inicial
-    </button>
+    <section id="s-buttons">
+        <button type="button"
+                id="btn-voltar">
+                Voltar para a página inicial
+        </button>
 
-    <button type="button" id="btn-alterar-info">
-        Alterar informação
-    </button>
+        <button type="button" id="btn-alterar-info">
+            Alterar informação
+        </button>
+    </section>
+
+    <form id="form-alteracao-pass" >
+            <p>
+                <label for="in-pass">
+                    Nova password:
+                </label>
+                <input type="password" 
+                name="in-pass"
+                id="in-pass">
+            </p>
+
+            <p class="p-aviso" id="p-av-formato-senha">
+            </p>
+
+            <p>
+                <label for="in-confirm-pass">
+                    Confirme a nova password:
+                </label>
+                <input type="password"
+                name="in-confirm-pass"
+                id="in-confirm-pass" >
+            </p>
+
+            <p class="p-aviso" id="p-av-conf-senha">
+            </p>
+
+            <p>
+                <button id="btn-alterar-pass"
+                type="submit" >
+                    Alterar password
+                </button>
+            </p>
+    </form>
 
     <script src="perfil.js"></script>
 </body>

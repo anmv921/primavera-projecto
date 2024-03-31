@@ -1,3 +1,7 @@
+h1 {
+    text-align: left;
+}
+
 form > p {
     display: flex;
     justify-content: space-between;
@@ -29,11 +33,7 @@ button:hover {
     display: none;
 }
 
-#p-av-conf-senha {
-    
-} 
-
-#p-av-todos {
-
+#p-buttons-row {
+    display: flex;
+    justify-content: flex-start;
 }
-

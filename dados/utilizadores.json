@@ -2,13 +2,13 @@
   "utilizadores": [
     {
       "id": "d2c7",
-      "email": "frankie@mean-streets.com",
+      "email": "frankie@gmail.com",
       "senha": "Qwertyuiop+´1",
       "nome": "Frankie Bones",
       "morada": "New York",
       "cp": "1234-123",
       "pais": "Portugal",
-      "contaActiva": "false"
+      "contaActiva": "true"
     },
     {
       "id": "4cb2",
@@ -22,8 +22,8 @@
     },
     {
       "id": "927e",
-      "email": "taxidriver@travis.com",
-      "senha": "1234567890'«qW",
+      "email": "taxidriver-travis@gmail.com",
+      "senha": "CBA1234567890'«qW",
       "nome": "Travis Bickle",
       "morada": "hopper av.",
       "cp": "1234-123",
@@ -31,13 +31,13 @@
       "contaActiva": "true"
     },
     {
-      "id": "0aa8",
-      "email": "sarpedon@troy.il",
+      "id": "daf4",
+      "email": "Joey.Scala@gmail.com",
       "senha": "1234567890'«qW",
-      "nome": "Sarpedon",
-      "morada": "Lycia",
+      "nome": "Joey Clams",
+      "morada": "new york",
       "cp": "1234-123",
-      "pais": "Lycia",
+      "pais": "usa",
       "contaActiva": "false"
     }
   ]

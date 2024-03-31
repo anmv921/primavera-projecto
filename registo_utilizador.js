@@ -4,17 +4,50 @@ let urlServer = "http://localhost:3000/utilizadores";
 function waitForVoltar() {
     document.getElementById("btn-voltar")
     .addEventListener("click", (event)=>{
+
+        sessionStorage.setItem("EdicaoPerfil", "false");
+
         window.location.href="primavera.html";
     });
+}
+
+function patchUser(in_novosDadosUser) {
+    fetch(
+        `${urlServer}/${sessionStorage.getItem("userId")}`,
+        {
+            method: "PATCH",
+            body: JSON.stringify(in_novosDadosUser),
+            headers: new Headers({
+                'Content-type': 'application/json; charset=utf-8'
+            })
+        })
+        .then( response => {
+            if (response.ok) {
+                console.log(response.status);
+                console.log(response.statusText);
+                return response.json();
+            }
+            else {
+                return Promise.reject(
+                    'Ocorreu um erro no acesso ao servidor!');
+            }
+        })
+        .then(
+        resposta => {
+            document.getElementById("tela-sucesso")
+            .classList.remove("hidden");
+            sessionStorage.setItem("ConfirmarSubmit", "true");
+        })
+        .catch( erro => {
+            alert(erro);
+        })
 }
 
 function waitForSubmit() {
     document
     .getElementById("form-registo")
     .addEventListener("submit", (event) => {
-
         event.preventDefault();
-
         /********************
          * LIMPAR OS AVISOS *
          ********************/
@@ -26,7 +59,6 @@ function waitForSubmit() {
          * INICIALIZAR VARIÁVEIS *
          *************************/
         let boolDadosOK = true;
-        
         /********************
          * OBTER OS VALORES *
          ********************/
@@ -39,7 +71,6 @@ function waitForSubmit() {
         let valorCodigoPostal = document
         .getElementById("codigo-postal").value.trim();
         let valorPais = document.getElementById("pais").value.trim();
-
         /*********************
          * VALIDAR OS CAMPOS *
          *********************/
@@ -89,7 +120,6 @@ function waitForSubmit() {
             "e uma letra!";
             elAviso.style.display = "block";
         }
-
         if ( !valorConfirmarSenha ) {
             document
             .getElementById("p-av-conf-senha")
@@ -102,7 +132,6 @@ function waitForSubmit() {
 
             boolDadosOK = false;
         }
-
         if ( valorSenha !== valorConfirmarSenha ) {
             document
             .getElementById("p-av-conf-senha")
@@ -114,7 +143,6 @@ function waitForSubmit() {
 
             boolDadosOK = false;
         }
-
         /*************************
          * VALIDAR CÓDIGO POSTAL *
          *************************/
@@ -124,7 +152,6 @@ function waitForSubmit() {
             document.getElementById("p-av-cp7")
             .style.display = "block";
         }
-
         /***********************************************
          * VALIDAR SE EMAIL JÁ EXISTE NA BASE DE DADOS *
          ***********************************************/
@@ -152,12 +179,26 @@ function waitForSubmit() {
         .then( users => {
             for ( let user of users ) {
                 if ( user.email.trim() === valorEmail ) {
-                    let el =  document.getElementById("p-av-email");
-                    el.innerHTML = 
-                    "Já existe um utilizador com este email!";
-                    el.style.display = "block";
-                    boolDadosOK = false;
-                    break;
+                    if ( 
+                        (
+                            // Criação de user
+                            sessionStorage
+                            .getItem("EdicaoPerfil") !== "true"
+                        ) ||
+                        (
+                            // Edição de user
+                            sessionStorage
+                            .getItem("EdicaoPerfil") === "true" &&
+                            user.id !== sessionStorage.getItem("userId")
+                        )
+                    ) {
+                        let el =  document.getElementById("p-av-email");
+                        el.innerHTML = 
+                        "Já existe um utilizador com este email!";
+                        el.style.display = "block";
+                        boolDadosOK = false;
+                        break;
+                    }
                 }
             } // End for users
         })
@@ -166,56 +207,75 @@ function waitForSubmit() {
          * DADOS OK *
          ************/
         if (boolDadosOK) {
-
-            let novoUser = {
-                email: valorEmail,
-                senha: valorSenha,
-                nome: valorNome,
-                morada: valorMorada,
-                cp: valorCodigoPostal,
-                pais: valorPais,
-                contaActiva: "false"};
-
-            fetch(
-                urlServer,
-                {
-                    method: "POST",
-                    body: JSON.stringify(novoUser),
-                    headers: new Headers({
-                        'Content-type': 'application/json; charset=utf-8'
+            if ( sessionStorage
+                .getItem("EdicaoPerfil") === "true" ) {
+                    /******************
+                     * ATUALIZAR USER *
+                     ******************/
+                    let novosDadosUser = {
+                        email: valorEmail,
+                        senha: valorSenha,
+                        nome: valorNome,
+                        morada: valorMorada,
+                        cp: valorCodigoPostal,
+                        pais: valorPais,
+                    };
+                    patchUser(novosDadosUser);
+                }
+             else {
+                /**************
+                 * CRIAR USER *
+                 **************/
+                let novoUser = {
+                    email: valorEmail,
+                    senha: valorSenha,
+                    nome: valorNome,
+                    morada: valorMorada,
+                    cp: valorCodigoPostal,
+                    pais: valorPais,
+                    contaActiva: "false"
+                };
+                fetch(
+                    urlServer,
+                    {
+                        method: "POST",
+                        body: JSON.stringify(novoUser),
+                        headers: new Headers({
+                            'Content-type': 'application/json; charset=utf-8'
+                        })
                     })
-                })
-                .then( response => {
-                    if (response.ok) {
-                        console.log(response.status);
-                        console.log(response.statusText);
-                        return response.json();
-                    }
-                    else {
-                        return Promise.reject(
-                            'Ocorreu um erro no acesso ao servidor!');
-                    }
-                })
-                .then(
-                resposta => {
-                    document.getElementById("nome").value = "";
-                    document.getElementById("email").value = "";
-                    document.getElementById("senha").value = "";
-                    document.getElementById("confirmar-senha")
-                        .value = "";
-                    document.getElementById("morada").value = "";
-                    document.getElementById("codigo-postal")
-                        .value = "";
-                    document.getElementById("pais").value = "";
-                    document.getElementById("tela-sucesso")
-                    .classList.remove("hidden");
-                    sessionStorage.setItem("ConfirmarSubmit", "true");
-                })
-                .catch( erro => {
-                    alert(erro);
-                })
+                    .then( response => {
+                        if (response.ok) {
+                            console.log(response.status);
+                            console.log(response.statusText);
+                            return response.json();
+                        }
+                        else {
+                            return Promise.reject(
+                                'Ocorreu um erro no acesso ao servidor!');
+                        }
+                    })
+                    .then(
+                    resposta => {
+                        document.getElementById("nome").value = "";
+                        document.getElementById("email").value = "";
+                        document.getElementById("senha").value = "";
+                        document.getElementById("confirmar-senha")
+                            .value = "";
+                        document.getElementById("morada").value = "";
+                        document.getElementById("codigo-postal")
+                            .value = "";
+                        document.getElementById("pais").value = "";
+                        document.getElementById("tela-sucesso")
+                        .classList.remove("hidden");
+                        sessionStorage.setItem("ConfirmarSubmit", "true");
+                    })
+                    .catch( erro => {
+                        alert(erro);
+                    })
+                } // End else - criar user
             } // End if dados ok
-        });
+        }); // End then
     }); // End event listener
 } // End wait for submit
 
@@ -230,7 +290,10 @@ function waitForFecharModalSucesso() {
         document.querySelector("#tela-sucesso")
         .classList.add("hidden");
         sessionStorage.setItem("ConfirmarSubmit", "false");
-        window.location.href="primavera.html";
+
+        sessionStorage.setItem("EdicaoPerfil", "false");
+
+        window.location.href = "primavera.html";
     });
 }
 
@@ -243,12 +306,11 @@ function validarResposta(in_response) {
         switch (in_response.status) {
             case 404:
                 erro = 
-                "Ocorreu um erro no acesso ao servidor"+
+                "Ocorreu um erro no acesso ao servidor" +
                 " - página não encontrada!";
                 break;
             case 500:
                 erro = "Ocorreu um erro no acesso ao servidor!"
-
             default:
                 erro = "Ocorreu um erro no request";
         }
@@ -279,9 +341,10 @@ function preencherDados(in_user) {
 
 function getCurrentUser() {
     let currentlyLoggedInId = sessionStorage.getItem("userId");
-    // Se não existe user autenticado, redirecionar para a página principal
+    // Se não existe user autenticado, 
+    // redirecionar para a página principal
     if ( !currentlyLoggedInId ) {
-        window.location.href="primavera.html";
+        window.location.href = "primavera.html";
     }
     // Obter os dados do cliente
     fetch(
@@ -304,22 +367,26 @@ function initForm() {
         .classList.add("hidden");
         sessionStorage.setItem("ConfirmarSubmit", "false");
     }
-
     if ( sessionStorage.getItem("EdicaoPerfil") === "true" ) {
         document.querySelector("#form-registo h1")
         .innerHTML = "Perfil";
-
-        document.querySelector("#btn-submeter-registo").innerHTML
-        = "Guardar alterações";
-
+        document.querySelector("#btn-submeter-registo")
+        .innerHTML = "Guardar alterações";
+        document.querySelector(".telaConteudo section")
+        .innerHTML = "<p>User atualizado com sucesso!</p>" +
+        "<p>Ao clicar OK será redireccionado para a página principal.</p>";
         getCurrentUser();
     }
     else {
         document.querySelector("#form-registo h1")
         .innerHTML = "Registo de Utilizador";
-
-        document.querySelector("#btn-submeter-registo").innerHTML
-        = "Submeter Registo";
+        document.querySelector("#btn-submeter-registo")
+        .innerHTML = "Submeter Registo";
+        document.querySelector(".telaConteudo section")
+        .innerHTML = "<p>User criado com sucesso!</p>" +
+        "<p>O seu perfil será validado e activado"+
+        " por um administrador em breve.</p>"+
+        "<p>Ao clicar OK será redireccionado para a página principal.</p>";
     }
 }
 
