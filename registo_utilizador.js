@@ -233,7 +233,8 @@ function waitForSubmit() {
                     morada: valorMorada,
                     cp: valorCodigoPostal,
                     pais: valorPais,
-                    contaActiva: "false"
+                    contaActiva: "false",
+                    admin: "false"
                 };
                 fetch(
                     urlServer,

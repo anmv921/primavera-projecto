@@ -8,7 +8,8 @@
       "morada": "New York",
       "cp": "1234-123",
       "pais": "Portugal",
-      "contaActiva": "true"
+      "contaActiva": "true",
+      "admin": "true"
     },
     {
       "id": "4cb2",
@@ -18,7 +19,8 @@
       "morada": "New York",
       "cp": "1234-123",
       "pais": "Portugal",
-      "contaActiva": "false"
+      "contaActiva": "true",
+      "admin": "true"
     },
     {
       "id": "927e",
@@ -28,7 +30,8 @@
       "morada": "hopper av.",
       "cp": "1234-123",
       "pais": "usa",
-      "contaActiva": "true"
+      "contaActiva": "false",
+      "admin": "true"
     },
     {
       "id": "daf4",
@@ -38,7 +41,30 @@
       "morada": "new york",
       "cp": "1234-123",
       "pais": "usa",
-      "contaActiva": "false"
+      "contaActiva": "false",
+      "admin": "false"
+    },
+    {
+      "id": "0015",
+      "email": "Charlie-Cappa@gmail.com",
+      "senha": "1234567890'«qW",
+      "nome": "Charlie Cappa",
+      "morada": "New York",
+      "cp": "1234-123",
+      "pais": "USA",
+      "contaActiva": "true",
+      "admin": "true"
+    },
+    {
+      "id": "36b1",
+      "email": "JohnnyCivello@outlook.pt",
+      "senha": "qwertyuiopA1@",
+      "nome": "Johnny Civello",
+      "morada": "new york",
+      "cp": "1234-123",
+      "pais": "usa",
+      "contaActiva": "true",
+      "admin": "true"
     }
   ]
 }

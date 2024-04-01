@@ -63,6 +63,15 @@ function toggleIconesLoginAtivo() {
 
     document.getElementById("li-login")
     .classList.add("hidden");
+
+    if ( sessionStorage.getItem("userIsAdmin") === "true" ) {
+        document.getElementById("li-area-admin")
+        .classList.remove("hidden");
+    }
+    else {
+        document.getElementById("li-area-admin")
+        .classList.add("hidden");
+    }
 }
 
 function toggleIconesLogOut() {
@@ -77,6 +86,9 @@ function toggleIconesLogOut() {
 
     document.getElementById("li-login")
     .classList.remove("hidden");
+
+    document.getElementById("li-area-admin")
+    .classList.add("hidden");
 }
 
 function toggleWelcomeMessage(in_username) {
@@ -212,7 +224,10 @@ function waitForSubmit() {
                 .innerHTML = "";
 
                 fecharLogin();
-                toggleIconesLoginAtivo();
+
+
+
+                
 
                 let loggedInUserId = sessionStorage.getItem("userId");
 
@@ -245,6 +260,15 @@ function waitForSubmit() {
                 })
                 .then( user => {
                     toggleWelcomeMessage(user.nome);
+
+                    if (user.admin === "true" ) {
+                        sessionStorage
+                        .setItem("userIsAdmin", "true");
+                    }
+
+                    
+
+                    toggleIconesLoginAtivo();
                 })
                 .catch( erro => {
                     alert(erro);
@@ -404,14 +428,21 @@ function waitForAbrirRegisto() {
     document.querySelector("#li-registo")
     .addEventListener("click", (event)=> {
         sessionStorage.setItem("EdicaoPerfil", "false");
-        window.location.href="registo_utilizador.html";
+        window.location.href = "registo_utilizador.html";
     });
 }
 
 function waitForClickPerfil() {
     document.getElementById("li-perfil")
     .addEventListener( "click", (event) => {
-        window.location.href="perfil.html";
+        window.location.href = "perfil.html";
+    });
+}
+
+function waitForClickAdminArea() {
+    document.getElementById("li-area-admin")
+    .addEventListener("click", (click) => {
+        window.location.href = "admin_utilizadores.html";
     });
 }
 
@@ -447,3 +478,4 @@ sliderLoop();
 waitForAcceptCookies();
 waitForAbrirRegisto();
 waitForClickPerfil();
+waitForClickAdminArea();
