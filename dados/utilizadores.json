@@ -2,7 +2,7 @@
   "utilizadores": [
     {
       "id": "d2c7",
-      "email": "frankie@gmail.com",
+      "email": "frankie1234@gmail.com",
       "senha": "Qwertyuiop+´1",
       "nome": "Frankie Bones",
       "morada": "New York",
@@ -65,6 +65,17 @@
       "pais": "usa",
       "contaActiva": "true",
       "admin": "true"
+    },
+    {
+      "id": "9359",
+      "email": "giovanni@gmail.com",
+      "senha": "1234567890'«qW",
+      "nome": "Giovanni Cappa",
+      "morada": "new york",
+      "cp": "1111-111",
+      "pais": "usa",
+      "contaActiva": "true",
+      "admin": "false"
     }
   ]
 }

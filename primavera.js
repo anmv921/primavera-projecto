@@ -265,6 +265,10 @@ function waitForSubmit() {
                         sessionStorage
                         .setItem("userIsAdmin", "true");
                     }
+                    else {
+                        sessionStorage
+                        .setItem("userIsAdmin", "false");
+                    }
 
                     
 
