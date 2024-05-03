@@ -1,17 +1,6 @@
 {
   "utilizadores": [
     {
-      "id": "d2c7",
-      "email": "frankie1234@gmail.com",
-      "senha": "Qwertyuiop+´1",
-      "nome": "Frankie Bones",
-      "morada": "New York",
-      "cp": "1234-123",
-      "pais": "Portugal",
-      "contaActiva": "true",
-      "admin": "true"
-    },
-    {
       "id": "4cb2",
       "email": "jimmy@hotmail.com",
       "senha": "Qwertyuiop+´1",
@@ -63,8 +52,8 @@
       "morada": "new york",
       "cp": "1234-123",
       "pais": "usa",
-      "contaActiva": "true",
-      "admin": "true"
+      "contaActiva": "false",
+      "admin": "false"
     },
     {
       "id": "9359",
@@ -75,7 +64,7 @@
       "cp": "1111-111",
       "pais": "usa",
       "contaActiva": "true",
-      "admin": "false"
+      "admin": "true"
     }
   ]
 }

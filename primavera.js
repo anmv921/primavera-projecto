@@ -11,11 +11,19 @@ function waitToggleSearch() {
             .id === "in-campo-pesquisa") {
             document.querySelector(".in-campo-pesquisa-class")
                 .id = "in-campo-pesquisa-hidden";
+
+                document.querySelector("#p-msg-bem-vindo")
+                .style.display = "inherit";
         }
         else {
             document.querySelector(".in-campo-pesquisa-class")
                 .id = "in-campo-pesquisa";
             document.querySelector(".in-campo-pesquisa-class").focus();
+
+            // if ( window.innerWidth < 876 ) {
+            //     document.querySelector("#p-msg-bem-vindo")
+            //     .style.display = "none";
+            // }
         }
 
     });

@@ -15,6 +15,7 @@ body {
 /**********
  * HEADER *
  **********/
+
 header #div-header {
     background-color:  #f5f5f5;
     height: 80px;
@@ -67,6 +68,11 @@ header #div-header {
 
 #li-hamburguer {
     display: none;
+}
+
+#p-msg-bem-vindo {
+    overflow: scroll;
+    max-height: 38.4px;
 }
 
 /********
@@ -168,6 +174,7 @@ header #div-header {
     cursor: pointer;
     color: #252525;
 }
+
 
 /********
  * MAIN *
@@ -660,3 +667,11 @@ h6 {
         display: none;
     }
 }
+
+
+@media only screen and (max-width: 644px) {
+    #p-msg-bem-vindo {
+        /* display: none; */
+    }
+}
+
