@@ -16,6 +16,10 @@ body {
  * HEADER *
  **********/
 
+.background-grey {
+    background-color:  #f5f5f5;
+}
+
 header #div-header {
     background-color:  #f5f5f5;
     height: 80px;
@@ -32,11 +36,12 @@ header #div-header {
     display: flex;
     justify-content: space-between;
     flex-shrink: 2;
+    align-items: flex-start;
 }
 
 #logo-e-icones > div > ul {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     margin-right: 20px;
 }
 
@@ -47,9 +52,28 @@ header #div-header {
     margin-right: 0;
 }
 
+#icones {
+    /* display: flex;
+    align-items: baseline; */
+}
+
+#icones > ul{
+    /* margin-bottom: 20px;
+    height: 18.8px; */
+    /* height: 16.8px; */
+}
+
+#p-msg-bem-vindo {
+    /* margin-top: 0px; */
+    /* display: flex;
+    align-items: flex-start; */
+}
+
 .in-campo-pesquisa-class {
     border-width: 1px;
     border-color: #aaa;
+
+    
 }
 
 #in-campo-pesquisa-hidden {
@@ -71,8 +95,8 @@ header #div-header {
 }
 
 #p-msg-bem-vindo {
-    overflow: scroll;
-    max-height: 38.4px;
+    /* overflow: scroll; */
+    /* max-height: 38.4px; */
 }
 
 /********
@@ -669,9 +693,9 @@ h6 {
 }
 
 
-@media only screen and (max-width: 644px) {
+@media only screen and (max-width: 660px) {
     #p-msg-bem-vindo {
-        /* display: none; */
+        display: none;
     }
 }
 
