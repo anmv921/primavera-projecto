@@ -16,9 +16,9 @@
       "email": "taxidriver-travis@gmail.com",
       "senha": "EDCBA1234567890'«qW",
       "nome": "Travis Bickle",
-      "morada": "hopper av.",
+      "morada": "Hopper Av.",
       "cp": "1234-123",
-      "pais": "usa",
+      "pais": "USA",
       "contaActiva": "false",
       "admin": "true"
     },
@@ -27,9 +27,9 @@
       "email": "Joey.Scala@gmail.com",
       "senha": "1234567890'«qW",
       "nome": "Joey Clams",
-      "morada": "new york",
+      "morada": "New York",
       "cp": "1234-123",
-      "pais": "usa",
+      "pais": "USA",
       "contaActiva": "false",
       "admin": "false"
     },
@@ -49,9 +49,9 @@
       "email": "JohnnyCivello@outlook.pt",
       "senha": "qwertyuiopA1@",
       "nome": "Johnny Civello",
-      "morada": "new york",
+      "morada": "New York",
       "cp": "1234-123",
-      "pais": "usa",
+      "pais": "USA",
       "contaActiva": "false",
       "admin": "false"
     }

@@ -1,5 +1,5 @@
 h1 {
-    text-align: center;
+    text-align: left;
 }
 
 button {
@@ -37,7 +37,7 @@ form > p:last-child {
 
 #s-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 10px;
 }
 

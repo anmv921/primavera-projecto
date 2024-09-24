@@ -58,12 +58,20 @@ function getAllUsers() {
                 <td>${user.morada}</td>
                 <td>${user.cp}</td>
                 <td>${user.pais}</td>
-                <td>${user.contaActiva}</td>
-                <td><button type="button" class="btn-ativar" data-id="ativar_${
+                <td>
+                    ${user.contaActiva == "true" ? "&#x2705;" : "&#x274C;"}
+                </td>
+                <td><button type="button" class="btn-ativar ${
+                    user.contaActiva==="false" ? "btn-green" : "btn-red"
+                }" data-id="ativar_${
                     user.id}">${
                         user.contaActiva==="false" ? "Ativar" : "Desativar"}</button></td>
-                <td>${user.admin}</td>
-                <td><button type="button" class="btn-admin" data-id="admin_${
+                <td>
+                    ${user.admin=="true" ? "&#x2705;" : "&#x274C;"}
+                </td>
+                <td><button type="button" class="btn-admin 
+                ${user.admin === "false" ? "btn-green" : "btn-red"}
+                " data-id="admin_${
                     user.id}">${
                         user.admin === "false" ? "Tornar admin" : "Remover permissões"
                     }</button></td>
