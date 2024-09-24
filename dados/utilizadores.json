@@ -54,17 +54,6 @@
       "pais": "usa",
       "contaActiva": "false",
       "admin": "false"
-    },
-    {
-      "id": "9359",
-      "email": "giovanni@gmail.com",
-      "senha": "1234567890'«qW",
-      "nome": "Giovanni Cappa",
-      "morada": "new york",
-      "cp": "1111-111",
-      "pais": "usa",
-      "contaActiva": "true",
-      "admin": "true"
     }
   ]
 }
