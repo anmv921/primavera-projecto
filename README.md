@@ -1,8 +1,5 @@
 # Cegid/Primavera Academy | Projeto Web Developer
 
-![input xlsx](https://github.com/anmv921/primavera-projecto/blob/main/dados/screenshots/Captura%20de%20ecr%C3%A3%202024-09-28%20143911.png)
-
-
 <img alt="ticket form 1" 
 src="https://github.com/anmv921/primavera-projecto/blob/main/dados/screenshots/Captura%20de%20ecr%C3%A3%202024-09-28%20143911.png" width="200px" /> 
 
