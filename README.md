@@ -30,3 +30,6 @@ Para iniciar o servidor, corremos o comando:
 
 As operações CRUD efectuadas no front-end são utilizadas com javascript, utilizando a API fetch, sendo que 
 existem formulários de login, registo, edição de dados de utilizador, e eliminação.
+
+
+Os ícones utilizados pertencem á biblioteca **Font Awesome** o texto utiliza o tipo de letra **Roboto**, de **Google Fonts**.
