@@ -58,22 +58,16 @@ header #div-header {
 }
 
 #icones > ul{
-    /* margin-bottom: 20px;
-    height: 18.8px; */
-    /* height: 16.8px; */
+
 }
 
 #p-msg-bem-vindo {
-    /* margin-top: 0px; */
-    /* display: flex;
-    align-items: flex-start; */
+
 }
 
 .in-campo-pesquisa-class {
     border-width: 1px;
     border-color: #aaa;
-
-    
 }
 
 #in-campo-pesquisa-hidden {
@@ -95,8 +89,7 @@ header #div-header {
 }
 
 #p-msg-bem-vindo {
-    /* overflow: scroll; */
-    /* max-height: 38.4px; */
+
 }
 
 /********
@@ -203,6 +196,52 @@ header #div-header {
 /********
  * MAIN *
  ********/
+
+/***********************
+ * SIDENAV TELEFONE V2 *
+ ***********************/
+
+ #mySidenav div {
+    top: 50%;
+
+    position: absolute;
+    right: -115px;
+    transition: 0.3s;
+    width: 170px;
+    text-decoration: none;
+    border-radius: 0px 0px 0px 0px;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    background-color: #252525;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+
+    align-items: center;
+  } 
+
+#mySidenav div:hover {
+    right: 0;
+  }
+
+  #img-sidenav {
+
+  }
+  
+  #tel-sidenav {
+    /* text-decoration: none; */
+    color: #0acb84;
+  }
+/************
+ * /SIDENAV *
+ ************/
+
+
 h4 {
     font-size: 250%;
     color: #3C368C;
@@ -413,7 +452,7 @@ footer > section > ul > li > a:hover {
 #backToTop {
     position: fixed;
     bottom: 20px;
-    transform: translateX(95vw);
+    transform: translateX(90vw);
     margin-left: -22px;
 }
 
@@ -501,7 +540,6 @@ h6 {
 /***********
  * COOKIES *
  ***********/
-
  .tela-cookies {
     position: fixed;
     top: 0;

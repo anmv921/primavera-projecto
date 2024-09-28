@@ -19,11 +19,6 @@ function waitToggleSearch() {
             document.querySelector(".in-campo-pesquisa-class")
                 .id = "in-campo-pesquisa";
             document.querySelector(".in-campo-pesquisa-class").focus();
-
-            // if ( window.innerWidth < 876 ) {
-            //     document.querySelector("#p-msg-bem-vindo")
-            //     .style.display = "none";
-            // }
         }
 
     });
@@ -233,10 +228,6 @@ function waitForSubmit() {
 
                 fecharLogin();
 
-
-
-                
-
                 let loggedInUserId = sessionStorage.getItem("userId");
 
                 /******************
@@ -277,8 +268,6 @@ function waitForSubmit() {
                         sessionStorage
                         .setItem("userIsAdmin", "false");
                     }
-
-                    
 
                     toggleIconesLoginAtivo();
                 })
