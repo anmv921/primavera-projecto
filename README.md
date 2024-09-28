@@ -1,6 +1,6 @@
 # Cegid/Primavera Academy | Projeto Web Developer
 
-![input xlsx](https://github.com/anmv921/primavera-projecto/blob/main/Data/ZohoProcessScreenshots/05.PNG)
+![input xlsx](https://github.com/anmv921/primavera-projecto/blob/main/dados/screenshots/Captura%20de%20ecr%C3%A3%202024-09-28%20143911.png)
 
 Site criado como o projeto final da formação front-end realizada durante o ano 2024.
 Este projeto procura emular a pagina inicial do software comercial Primavera, que descreve brevemente os seguintes pontos:
