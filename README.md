@@ -2,6 +2,10 @@
 
 ![input xlsx](https://github.com/anmv921/primavera-projecto/blob/main/dados/screenshots/Captura%20de%20ecr%C3%A3%202024-09-28%20143911.png)
 
+
+<img alt="ticket form 1" 
+src="https://github.com/anmv921/primavera-projecto/blob/main/dados/screenshots/Captura%20de%20ecr%C3%A3%202024-09-28%20143911.png" width="200px" /> 
+
 Site criado como o projeto final da formação front-end realizada durante o ano 2024.
 Este projeto procura emular a pagina inicial do software comercial Primavera, que descreve brevemente os seguintes pontos:
 
