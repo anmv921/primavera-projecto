@@ -16,6 +16,7 @@ organizar os elementos na página.
 
 Foi implementado um sistema simples de login, com os dados guardados num ficheiro json. 
 
+
 O âmbito do projeto é front-end, e como tal, para emular uma base de dados foi utilizado o pacote **json-server**
 Para instalar este pacote é necessário instalar o gerenciador de pacotes **npm** e correr o seguinte comando:
 
