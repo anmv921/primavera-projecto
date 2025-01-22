@@ -2,10 +2,10 @@
   "utilizadores": [
     {
       "id": "4cb2",
-      "email": "jimmy@hotmail.com",
+      "email": "fulano@hotmail.com",
       "senha": "Qwertyuiop+´1",
-      "nome": "Jimmy Sparks",
-      "morada": "New York",
+      "nome": "fulano",
+      "morada": "qwerty",
       "cp": "1234-123",
       "pais": "Portugal",
       "contaActiva": "true",
@@ -13,47 +13,14 @@
     },
     {
       "id": "927e",
-      "email": "taxidriver-travis@gmail.com",
+      "email": "cicrano@gmail.com",
       "senha": "EDCBA1234567890'«qW",
-      "nome": "Travis Bickle",
-      "morada": "Hopper Av.",
+      "nome": "cicrano",
+      "morada": "lorem ipsum.",
       "cp": "1234-123",
       "pais": "USA",
       "contaActiva": "false",
       "admin": "true"
-    },
-    {
-      "id": "daf4",
-      "email": "Joey.Scala@gmail.com",
-      "senha": "1234567890'«qW",
-      "nome": "Joey Clams",
-      "morada": "New York",
-      "cp": "1234-123",
-      "pais": "USA",
-      "contaActiva": "false",
-      "admin": "false"
-    },
-    {
-      "id": "0015",
-      "email": "Charlie-Cappa@gmail.com",
-      "senha": "1234567890'«qW",
-      "nome": "Charlie Cappa",
-      "morada": "New York",
-      "cp": "1234-123",
-      "pais": "USA",
-      "contaActiva": "true",
-      "admin": "true"
-    },
-    {
-      "id": "36b1",
-      "email": "JohnnyCivello@outlook.pt",
-      "senha": "qwertyuiopA1@",
-      "nome": "Johnny Civello",
-      "morada": "New York",
-      "cp": "1234-123",
-      "pais": "USA",
-      "contaActiva": "false",
-      "admin": "false"
     }
   ]
 }
